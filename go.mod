@@ -1,4 +1,4 @@
-module gorm.io/gorm
+module github.com/systematiccaos/gorm
 
 go 1.14
 
