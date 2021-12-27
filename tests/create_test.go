@@ -7,9 +7,9 @@ import (
 	"time"
 
 	"github.com/jinzhu/now"
-	"gorm.io/gorm"
-	"gorm.io/gorm/clause"
-	. "gorm.io/gorm/utils/tests"
+	"github.com/systematiccaos/gorm"
+	"github.com/systematiccaos/gorm/clause"
+	. "github.com/systematiccaos/gorm/utils/tests"
 )
 
 func TestCreate(t *testing.T) {

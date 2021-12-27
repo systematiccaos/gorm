@@ -11,9 +11,9 @@ import (
 	"testing"
 	"time"
 
-	"gorm.io/gorm"
-	"gorm.io/gorm/clause"
-	. "gorm.io/gorm/utils/tests"
+	"github.com/systematiccaos/gorm"
+	"github.com/systematiccaos/gorm/clause"
+	. "github.com/systematiccaos/gorm/utils/tests"
 )
 
 func TestFind(t *testing.T) {
@@ -440,7 +440,7 @@ func TestNot(t *testing.T) {
 	if !regexp.MustCompile("SELECT \\* FROM .*users.* WHERE .*name.* IS NOT NULL").MatchString(result.Statement.SQL.String()) {
 		t.Fatalf("Build NOT condition, but got %v", result.Statement.SQL.String())
 	}
-	
+
 	result = dryDB.Not(map[string]interface{}{"name": []string{"jinzhu", "jinzhu 2"}}).Find(&User{})
 	if !regexp.MustCompile("SELECT \\* FROM .*users.* WHERE .*name.* NOT IN \\(.+,.+\\)").MatchString(result.Statement.SQL.String()) {
 		t.Fatalf("Build NOT condition, but got %v", result.Statement.SQL.String())

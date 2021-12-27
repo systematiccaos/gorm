@@ -7,7 +7,7 @@ import (
 	"strings"
 	"time"
 
-	"gorm.io/gorm/schema"
+	"github.com/systematiccaos/gorm/schema"
 )
 
 func prepareValues(values []interface{}, db *DB, columnTypes []*sql.ColumnType, columns []string) {

@@ -1,8 +1,8 @@
 package gorm
 
 import (
-	"gorm.io/gorm/clause"
-	"gorm.io/gorm/schema"
+	"github.com/systematiccaos/gorm/clause"
+	"github.com/systematiccaos/gorm/schema"
 )
 
 // Migrator returns migrator

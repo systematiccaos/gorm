@@ -7,9 +7,9 @@ import (
 	"testing"
 	"time"
 
-	"gorm.io/gorm"
-	"gorm.io/gorm/schema"
-	"gorm.io/gorm/utils/tests"
+	"github.com/systematiccaos/gorm"
+	"github.com/systematiccaos/gorm/schema"
+	"github.com/systematiccaos/gorm/utils/tests"
 )
 
 func TestFieldValuerAndSetter(t *testing.T) {
@@ -294,28 +294,28 @@ type TypeAlias struct {
 	STRING  `gorm:"column:fstring"`
 }
 
-func TestTypeAliasField(t *testing.T){
+func TestTypeAliasField(t *testing.T) {
 	alias, err := schema.Parse(&TypeAlias{}, &sync.Map{}, schema.NamingStrategy{})
 	if err != nil {
 		t.Fatalf("Failed to parse TypeAlias with permission, got error %v", err)
 	}
 
 	fields := []*schema.Field{
-		{Name: "ID",      DBName: "id",       BindNames: []string{"ID"},      DataType: schema.Int   , Creatable: true, Updatable: true, Readable: true, Size: 64, PrimaryKey: true, HasDefaultValue: true, AutoIncrement: true },
-		{Name: "INT",     DBName: "fint",     BindNames: []string{"INT"},     DataType: schema.Int   , Creatable: true, Updatable: true, Readable: true, Size: 64, Tag: `gorm:"column:fint"`},
-		{Name: "INT8",    DBName: "fint8",    BindNames: []string{"INT8"},    DataType: schema.Int   , Creatable: true, Updatable: true, Readable: true, Size: 8,  Tag: `gorm:"column:fint8"`},
-		{Name: "INT16",   DBName: "fint16",   BindNames: []string{"INT16"},   DataType: schema.Int   , Creatable: true, Updatable: true, Readable: true, Size: 16, Tag: `gorm:"column:fint16"`},
-		{Name: "INT32",   DBName: "fint32",   BindNames: []string{"INT32"},   DataType: schema.Int   , Creatable: true, Updatable: true, Readable: true, Size: 32, Tag: `gorm:"column:fint32"`},
-		{Name: "INT64",   DBName: "fint64",   BindNames: []string{"INT64"},   DataType: schema.Int   , Creatable: true, Updatable: true, Readable: true, Size: 64, Tag: `gorm:"column:fint64"`},
-		{Name: "UINT",    DBName: "fuint",    BindNames: []string{"UINT"},    DataType: schema.Uint  , Creatable: true, Updatable: true, Readable: true, Size: 64, Tag: `gorm:"column:fuint"`},
-		{Name: "UINT8",   DBName: "fuint8",   BindNames: []string{"UINT8"},   DataType: schema.Uint  , Creatable: true, Updatable: true, Readable: true, Size: 8,  Tag: `gorm:"column:fuint8"`},
-		{Name: "UINT16",  DBName: "fuint16",  BindNames: []string{"UINT16"},  DataType: schema.Uint  , Creatable: true, Updatable: true, Readable: true, Size: 16, Tag: `gorm:"column:fuint16"`},
-		{Name: "UINT32",  DBName: "fuint32",  BindNames: []string{"UINT32"},  DataType: schema.Uint  , Creatable: true, Updatable: true, Readable: true, Size: 32, Tag: `gorm:"column:fuint32"`},
-		{Name: "UINT64",  DBName: "fuint64",  BindNames: []string{"UINT64"},  DataType: schema.Uint  , Creatable: true, Updatable: true, Readable: true, Size: 64, Tag: `gorm:"column:fuint64"`},
-		{Name: "FLOAT32", DBName: "ffloat32", BindNames: []string{"FLOAT32"}, DataType: schema.Float , Creatable: true, Updatable: true, Readable: true, Size: 32, Tag: `gorm:"column:ffloat32"`},
-		{Name: "FLOAT64", DBName: "ffloat64", BindNames: []string{"FLOAT64"}, DataType: schema.Float , Creatable: true, Updatable: true, Readable: true, Size: 64, Tag: `gorm:"column:ffloat64"`},
-		{Name: "BOOL",    DBName: "fbool",    BindNames: []string{"BOOL"},    DataType: schema.Bool  , Creatable: true, Updatable: true, Readable: true, Tag: `gorm:"column:fbool"`},
-		{Name: "STRING",  DBName: "fstring",  BindNames: []string{"STRING"},  DataType: schema.String, Creatable: true, Updatable: true, Readable: true, Tag: `gorm:"column:fstring"`},
+		{Name: "ID", DBName: "id", BindNames: []string{"ID"}, DataType: schema.Int, Creatable: true, Updatable: true, Readable: true, Size: 64, PrimaryKey: true, HasDefaultValue: true, AutoIncrement: true},
+		{Name: "INT", DBName: "fint", BindNames: []string{"INT"}, DataType: schema.Int, Creatable: true, Updatable: true, Readable: true, Size: 64, Tag: `gorm:"column:fint"`},
+		{Name: "INT8", DBName: "fint8", BindNames: []string{"INT8"}, DataType: schema.Int, Creatable: true, Updatable: true, Readable: true, Size: 8, Tag: `gorm:"column:fint8"`},
+		{Name: "INT16", DBName: "fint16", BindNames: []string{"INT16"}, DataType: schema.Int, Creatable: true, Updatable: true, Readable: true, Size: 16, Tag: `gorm:"column:fint16"`},
+		{Name: "INT32", DBName: "fint32", BindNames: []string{"INT32"}, DataType: schema.Int, Creatable: true, Updatable: true, Readable: true, Size: 32, Tag: `gorm:"column:fint32"`},
+		{Name: "INT64", DBName: "fint64", BindNames: []string{"INT64"}, DataType: schema.Int, Creatable: true, Updatable: true, Readable: true, Size: 64, Tag: `gorm:"column:fint64"`},
+		{Name: "UINT", DBName: "fuint", BindNames: []string{"UINT"}, DataType: schema.Uint, Creatable: true, Updatable: true, Readable: true, Size: 64, Tag: `gorm:"column:fuint"`},
+		{Name: "UINT8", DBName: "fuint8", BindNames: []string{"UINT8"}, DataType: schema.Uint, Creatable: true, Updatable: true, Readable: true, Size: 8, Tag: `gorm:"column:fuint8"`},
+		{Name: "UINT16", DBName: "fuint16", BindNames: []string{"UINT16"}, DataType: schema.Uint, Creatable: true, Updatable: true, Readable: true, Size: 16, Tag: `gorm:"column:fuint16"`},
+		{Name: "UINT32", DBName: "fuint32", BindNames: []string{"UINT32"}, DataType: schema.Uint, Creatable: true, Updatable: true, Readable: true, Size: 32, Tag: `gorm:"column:fuint32"`},
+		{Name: "UINT64", DBName: "fuint64", BindNames: []string{"UINT64"}, DataType: schema.Uint, Creatable: true, Updatable: true, Readable: true, Size: 64, Tag: `gorm:"column:fuint64"`},
+		{Name: "FLOAT32", DBName: "ffloat32", BindNames: []string{"FLOAT32"}, DataType: schema.Float, Creatable: true, Updatable: true, Readable: true, Size: 32, Tag: `gorm:"column:ffloat32"`},
+		{Name: "FLOAT64", DBName: "ffloat64", BindNames: []string{"FLOAT64"}, DataType: schema.Float, Creatable: true, Updatable: true, Readable: true, Size: 64, Tag: `gorm:"column:ffloat64"`},
+		{Name: "BOOL", DBName: "fbool", BindNames: []string{"BOOL"}, DataType: schema.Bool, Creatable: true, Updatable: true, Readable: true, Tag: `gorm:"column:fbool"`},
+		{Name: "STRING", DBName: "fstring", BindNames: []string{"STRING"}, DataType: schema.String, Creatable: true, Updatable: true, Readable: true, Tag: `gorm:"column:fstring"`},
 	}
 
 	for _, f := range fields {

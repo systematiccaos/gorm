@@ -5,9 +5,9 @@ import (
 	"testing"
 	"time"
 
-	"gorm.io/gorm"
-	"gorm.io/gorm/clause"
-	. "gorm.io/gorm/utils/tests"
+	"github.com/systematiccaos/gorm"
+	"github.com/systematiccaos/gorm/clause"
+	. "github.com/systematiccaos/gorm/utils/tests"
 )
 
 func TestUpsert(t *testing.T) {
